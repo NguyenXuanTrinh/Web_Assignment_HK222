@@ -1,6 +1,6 @@
 <?php
 session_start();
-ob_start();
+
 $rootPath = '/AssignmentWeb/';
 if (isset($_SESSION['email_user']) && !empty($_SESSION['email_user'])) {
   if (isset($_SESSION['cart']) && !empty($_SESSION['cart']))

@@ -1,6 +1,6 @@
 <?php
 session_start();
-ob_start();
+
 $rootPath = '/AssignmentWeb/admin';
 require_once '../../db/DB.php';
 ?>

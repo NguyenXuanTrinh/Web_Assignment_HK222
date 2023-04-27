@@ -1,6 +1,6 @@
 <?php
     session_start();
-    ob_start();
+    
     $rootPath = '/AssignmentWeb';
 
     // nếu khách hàng chưa đăng nhập thì chuyển đến trang đăng nhập
