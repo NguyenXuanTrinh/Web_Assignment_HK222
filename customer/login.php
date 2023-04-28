@@ -45,7 +45,7 @@ if (isset($_POST['login_user'])) {
     
 
     $is_validated = true;
-    $errorEmail = $errorPassword = "";
+    // $errorEmail = $errorPassword = "";
     $email = $_POST['email'];
     $password = $_POST['password'];
     if ($email == "" || $password == "") {
@@ -54,7 +54,7 @@ if (isset($_POST['login_user'])) {
     }
     if (checkEmailExist($email) == ""){
       $is_validated = false;
-      $errorEmail = "Email không tồn tại";
+      // $errorEmail = "Email không tồn tại";
     }
 
     $sql = "SELECT password FROM user WHERE email = '$email'";
@@ -62,8 +62,8 @@ if (isset($_POST['login_user'])) {
     if ($ketqua->num_rows == 0){
       $tb = 'Sai email hoặc mật khẩu'; 
     } else {
-      $password = $ketqua->fetch_array()['password'];
-      if($password == $password) {
+      $password2 = $ketqua->fetch_array()['password'];
+      if($password == $password2) {
           $_SESSION["email_user"] = $email;
           if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) 
             header('location: check_out.php');

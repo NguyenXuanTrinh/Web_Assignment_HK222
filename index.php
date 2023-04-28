@@ -121,35 +121,7 @@ require_once './db/DB.php';
     </div>
 </div>
 
-<?php
-    $sqlShowProducts = "SELECT product_id, name, quantity, images, price, price_sale FROM product";
-    $categoryId = '';
-    if (isset($_POST['search_btn'])) {
-        $categoryId = $_POST['categoryId'];
-        $sqlShowProducts = "SELECT product_id, name, quantity, images, price, price_sale FROM product WHERE category_id = '$categoryId'";
-    }
-    $products = $conn->query($sqlShowProducts); 
-    $totalProducts = $products->num_rows;
-    $currentPage = 1;
-    if (isset($_GET['page'])) {
-        settype($_GET['page'], 'int'); // tránh injection, trang tự về 0
-        $currentPage = $_GET['page'];
-    }
-    $limit = 8;
-    $totalPage = ceil($totalProducts/$limit);
-
-    // giới hạn phân trang trong 1-totalPage
-    if($currentPage > $totalPage) {
-        $currentPage = $totalPage;
-    } elseif ($currentPage < 1) { 
-        $currentPage = 1;
-    }
-
-    $start = ($currentPage - 1)*$limit;
-    // $sqlShowProducts = "SELECT product_id, name, quantity, images, price, price_sale FROM product LIMIT $start, $limit";
-    $sqlShowProducts = $sqlShowProducts." LIMIT $start, $limit";
-    $products = $conn->query($sqlShowProducts); 
-?>
+<!--  -->
 
 <?php
     require './includes/footer.php';
